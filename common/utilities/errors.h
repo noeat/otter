@@ -4,14 +4,14 @@
 
 namespace common
 {
-void Assert(char const* file, int line, char const* function, char const* message) ;
-void Assert(char const* file, int line, char const* function, char const* message, char const* format, ...);
-void Fatal(char const* file, int line, char const* function, char const* message, ...) ;
-void Error(char const* file, int line, char const* function, char const* message) ;
+  void Assert(char const* file, int line, char const* function, char const* message);
+  void Assert(char const* file, int line, char const* function, char const* message, char const* format, ...);
+  void Fatal(char const* file, int line, char const* function, char const* message, ...);
+  void Error(char const* file, int line, char const* function, char const* message);
 
-void Abort(char const* file, int line, char const* function) ;
-void Warning(char const* file, int line, char const* function, char const* message);
-void AbortHandler(int sigval) ;
+  void Abort(char const* file, int line, char const* function);
+  void Warning(char const* file, int line, char const* function, char const* message);
+  void AbortHandler(int sigval);
 } // namespace common
 
 #if _WIN32
@@ -34,8 +34,8 @@ void AbortHandler(int sigval) ;
 template <typename T>
 inline T* ASSERT_NOTNULL_IMPL(T* pointer, char const* expr)
 {
-    ASSERT(pointer, "%s", expr);
-    return pointer;
+  ASSERT(pointer, "%s", expr);
+  return pointer;
 }
 
 #define ASSERT_NOTNULL(pointer) ASSERT_NOTNULL_IMPL(pointer, #pointer)

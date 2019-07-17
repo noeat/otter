@@ -5,20 +5,20 @@
 
 namespace ByteConverter
 {
-    template<size_t T>
-    inline void convert(char *val)
-    {
-        std::swap(*val, *(val + T - 1));
-        convert<T - 2>(val + 1);
-    }
+  template<size_t T>
+  inline void convert(char *val)
+  {
+    std::swap(*val, *(val + T - 1));
+    convert<T - 2>(val + 1);
+  }
 
-    template<> inline void convert<0>(char *) { }
-    template<> inline void convert<1>(char *) { }         
+  template<> inline void convert<0>(char *) { }
+  template<> inline void convert<1>(char *) { }
 
-    template<typename T> inline void apply(T *val)
-    {
-        convert<sizeof(T)>((char *)(val));
-    }
+  template<typename T> inline void apply(T *val)
+  {
+    convert<sizeof(T)>((char *)(val));
+  }
 }
 
 #if CPU_ENDIAN == _BIGENDIAN
@@ -37,8 +37,8 @@ template<typename T> void endian_convert(T*);
 template<typename T> void endian_convert_reverse(T*);
 
 inline void endian_convert(uint8&) { }
-inline void endian_convert( int8&) { }
+inline void endian_convert(int8&) { }
 inline void endian_convert_reverse(uint8&) { }
-inline void endian_convert_reverse( int8&) { }
+inline void endian_convert_reverse(int8&) { }
 
 #endif //__byte_converter_h__

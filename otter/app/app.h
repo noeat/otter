@@ -5,15 +5,15 @@
 class App
 {
 public:
-	App() = default;
-	~App() = default;
-	void app_main(int argc, char** argv);
+  App() = default;
+  ~App() = default;
+  void app_main(int argc, char** argv);
 private:
-	sol::state luaapp_;
+  sol::state luaapp_;
 
-	App(const App&) = delete;
-	App& operator=(const App&) = delete;
-	App(const App&&) = delete;
-	App& operator=(const App&&) = delete;
+  App(const App&) = delete;
+  App& operator=(const App&) = delete;
+  App(const App&&) = delete;
+  App& operator=(const App&&) = delete;
 };
 #endif //__otter_app_h__

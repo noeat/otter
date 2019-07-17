@@ -13,14 +13,14 @@
 
 namespace common
 {
-    namespace asio
+  namespace asio
+  {
+    class DeadlineTimer : public DeadlineTimerBase
     {
-        class DeadlineTimer : public DeadlineTimerBase
-        {
-        public:
-            using DeadlineTimerBase::basic_deadline_timer;
-        };
-    }
+    public:
+      using DeadlineTimerBase::basic_deadline_timer;
+    };
+  }
 }
 
 #endif // __deadline_timer_h__
